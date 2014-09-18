@@ -1,4 +1,4 @@
 NORMA
 =====
 
-NORMA (Number Theoretic Register Machine) universal machine implementation
+NORMA (Number theOretic Register Machine) universal machine implementation
