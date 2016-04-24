@@ -38,11 +38,11 @@ public class NormaMachine {
 			}
 		}
 		
-		public static void ifRegisterIsEqualToZero(String registerName, CodeBlock ifTrue, CodeBlock ifFalse) {
+		public static void ifRegisterIsEqualToZero(String registerName, Runnable ifTrue, Runnable ifFalse) {
 			if (getRegisterValue(registerName) == 0) {
-				ifTrue.execute();
+				ifTrue.run();
 			} else {
-				ifFalse.execute();
+				ifFalse.run();
 			}
 		}
 		
@@ -72,18 +72,10 @@ public class NormaMachine {
 	}
 	
 	public static void main(String... args) {
-		Registers.ifRegisterIsEqualToZero("A", new CodeBlock() {
-			
-			@Override
-			public void execute() {
-				System.out.println("É zero");
-			}
-		}, new CodeBlock() {
-			
-			@Override
-			public void execute() {
-				System.out.println("Não é zero");
-			}
+		Registers.ifRegisterIsEqualToZero("A", () -> {
+			System.out.println("É zero");
+		}, () -> {
+			System.out.println("Não é zero");
 		});
 	}
 }
